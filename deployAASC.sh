@@ -8,7 +8,7 @@
 clear
 printf "\nDeploying app artifacts to Spring Cloud\n"
 
-# ==== Build and deploy ====
+# Deploy the actual applications
 printf "\n\nDeploying $API_GATEWAY_ID\n"
 az spring-cloud app deploy -n $API_GATEWAY_ID \
     -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
@@ -39,13 +39,10 @@ az spring-cloud app deploy -n $CONDITIONS_SERVICE_ID \
     --artifact-path $CONDITIONS_SERVICE_JAR \
     --jvm-options='-Xms2048m -Xmx2048m'
 
-# cd $PROJECT_DIRECTORY
-
+# Exercise those endpoints
 GATEWAY_URI=$(az spring-cloud app show -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE --query properties.url --output tsv)
-# | jq -r '.properties.url')
 
-printf "\n\nTesting deployed services at ${GATEWAY_URI}\n"
-
+printf "\n\nTesting deployed services at $GATEWAY_URI\n"
 for i in `seq 1 3`; 
 do
   printf "\n\nRetrieving airports list\n"
@@ -68,13 +65,6 @@ do
 
   printf "\n\nRetrieving METARs for Class B, C, & D airports in vicinity of KSTL\n"
   curl -g $GATEWAY_URI/conditions/summary
-
-    #   curl -g https://$SPRING_CLOUD_SERVICE-$AIRPORT_SERVICE_ID.azuremicroservices.io/
-    #   curl -g https://$SPRING_CLOUD_SERVICE-$AIRPORT_SERVICE_ID.azuremicroservices.io/airport/KALN
-
-    #   curl -g https://$SPRING_CLOUD_SERVICE-$WEATHER_SERVICE_ID.azuremicroservices.io
-    #   curl -g https://$SPRING_CLOUD_SERVICE-$WEATHER_SERVICE_ID.azuremicroservices.io/metar/KSUS
-    #   curl -g https://$SPRING_CLOUD_SERVICE-$WEATHER_SERVICE_ID.azuremicroservices.io/taf/KSUS
 done
 
 printf "\n\nAPI exercises complete via gateway $GATEWAY_URI\n"

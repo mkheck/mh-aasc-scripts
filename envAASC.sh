@@ -3,13 +3,19 @@
 # Author : Mark Heckler
 # Notes  : Run with 'source envAASC.sh' from your shell/commandline environment
 # History: Official "version 1" 20220214. Happy Valentine's Day! <3
+#        : Option for deploying to both of my accounts; change for yours ;)
 
 # Customize for your environment
-export SUBSCRIPTION='ca-markheckler-demo-test'
-export RESOURCE_GROUP='mh-scitc-rg'
+# export SUBSCRIPTION='ca-markheckler-demo-test'
+# export RESOURCE_GROUP='mh-scitc-rg'
+# export SPRING_CLOUD_SERVICE='mh-scitc-service'
+# export LOG_ANALYTICS='mkheck-scitc-analytics'
+export SUBSCRIPTION='9d3b13e3-e86e-4022-9c02-efb4f02ad908'
+export RESOURCE_GROUP='mh-scimc-rg'
+export SPRING_CLOUD_SERVICE='mh-scimc-service'
+export LOG_ANALYTICS='mkheck-scimc-analytics'
+
 export REGION='centralus'
-export SPRING_CLOUD_SERVICE='mh-scitc-service'
-export LOG_ANALYTICS='mkheck-scitc-analytics'
 export PROJECT_DIRECTORY=$HOME
 export REPO_OWNER_URI='https://github.com/mkheck'
 export PROJECT_REPO='spring-cloud-in-the-cloud'
@@ -38,8 +44,3 @@ export ADMIN_SERVICE_JAR="$ADMIN_SERVICE_DIR/target/$ADMIN_SERVICE_ID-0.0.1-SNAP
 export AIRPORT_SERVICE_JAR="$AIRPORT_SERVICE_DIR/target/$AIRPORT_SERVICE_ID-0.0.1-SNAPSHOT.jar"
 export WEATHER_SERVICE_JAR="$WEATHER_SERVICE_DIR/target/$WEATHER_SERVICE_ID-0.0.1-SNAPSHOT.jar"
 export CONDITIONS_SERVICE_JAR="$CONDITIONS_SERVICE_DIR/target/$CONDITIONS_SERVICE_ID-0.0.1-SNAPSHOT.jar"
-
-# Etc
-# export LOG_ANALYTICS_RESOURCE_ID=
-# export WEBAPP_RESOURCE_ID=
-# export GATEWAY_URI=

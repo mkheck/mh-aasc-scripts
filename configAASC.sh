@@ -51,6 +51,7 @@ printf "\n\nCreating the Spring Cloud infra: ${SPRING_CLOUD_SERVICE}\n"
 # --disable-app-insights is likely superfluous per 
 # https://docs.microsoft.com/en-us/cli/azure/spring-cloud?view=azure-cli-latest#az-spring-cloud-create
 az spring-cloud create -n $SPRING_CLOUD_SERVICE -g $RESOURCE_GROUP -l $REGION --disable-app-insights false
+# --subscription $SUBSCRIPTION
 
 # az spring-cloud config-server set --config-file $CONFIG_DIR/application.yml -n $SPRING_CLOUD_SERVICE -g $RESOURCE_GROUP
 # OR
