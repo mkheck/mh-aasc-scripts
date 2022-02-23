@@ -4,6 +4,7 @@
 # Notes  : Must have sourced envAASC.sh and run configAASC.sh before
 #          this script per previous instructions
 # History: Official "version 1" 20220214. Happy Valentine's Day! <3
+#        : General cleanup of script
 
 clear
 printf "\nDeploying app artifacts to Spring Cloud\n"

@@ -4,6 +4,7 @@
 # Author : Mark Heckler
 # Notes  : Must have sourced envAASC.sh before this script per envAASC.sh instructions
 # History: Official "version 1" 20220214. Happy Valentine's Day! <3
+#        : General cleanup of script
 
 function error_handler() {
   az group delete -g $RESOURCE_GROUP --no-wait --subscription $SUBSCRIPTION -y
