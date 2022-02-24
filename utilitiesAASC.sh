@@ -43,3 +43,35 @@ az spring-cloud stop -n $SPRING_CLOUD_SERVICE -g $RESOURCE_GROUP
 
 ## Create/deploy script runner, timer, logger
 time <script> | tee deployoutput.txt
+
+## Exercise endpoints
+
+### If not already done, source envAASC.sh first! Then...
+export GATEWAY_URI=$(az spring-cloud app show -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE --query properties.url --output tsv)
+
+printf "\n\nTesting deployed services at $GATEWAY_URI\n"
+for i in `seq 1 3`; 
+do
+  printf "\n\nRetrieving airports list\n"
+  curl -g $GATEWAY_URI/airports/
+
+  printf "\n\nRetrieving airport\n"
+  curl -g $GATEWAY_URI/airports/airport/KALN
+
+  printf "\n\nRetrieving default weather (METAR: KSTL)\n"
+  curl -g $GATEWAY_URI/weather
+
+  printf "\n\nRetrieving METAR for KSUS\n"
+  curl -g $GATEWAY_URI/weather/metar/KSUS
+
+  printf "\n\nRetrieving TAF for KSUS\n"
+  curl -g $GATEWAY_URI/weather/taf/KSUS
+
+  printf "\n\nRetrieving current conditions greeting\n"
+  curl -g $GATEWAY_URI/conditions
+
+  printf "\n\nRetrieving METARs for Class B, C, & D airports in vicinity of KSTL\n"
+  curl -g $GATEWAY_URI/conditions/summary
+done
+
+printf "\n\nAPI exercises complete via gateway $GATEWAY_URI\n"
