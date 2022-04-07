@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Author : Mark Heckler
-# Notes  : Run with 'source envAASC.sh' from your shell/commandline environment
-# History: Official "version 1" 20220214. Happy Valentine's Day! <3
-#        : Option for deploying to both of my accounts; change for yours ;)
+# Author  : Mark Heckler
+# Notes   : Run with 'source envAASC.sh' from your shell/commandline environment
+# History : Official "version 1" 20220214. Happy Valentine's Day! <3
+#         : Option for deploying to both of my accounts; change for yours ;)
+# 20220406: Changed region to eastus in attempt to resolve resource failures mid-script
 
 # Customize for your environment
 export SUBSCRIPTION='ca-markheckler-demo-test'

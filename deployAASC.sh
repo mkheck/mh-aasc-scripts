@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Author : Mark Heckler
-# Notes  : Must have sourced envAASC.sh and run configAASC.sh before
-#          this script per previous instructions
-# History: Official "version 1" 20220214. Happy Valentine's Day! <3
-#        : General cleanup of script
+# Author  : Mark Heckler
+# Notes   : Must have sourced envAASC.sh and run configAASC.sh before
+#           this script per previous instructions
+# History : Official "version 1" 20220214. Happy Valentine's Day! <3
+#         : General cleanup of script
+# 20220406: Added test endpoints to verify Config Server values passed
 
 clear
 printf "\nDeploying app artifacts to Spring Cloud\n"
@@ -46,8 +47,14 @@ GATEWAY_URI=$(az spring-cloud app show -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s 
 printf "\n\nTesting deployed services at $GATEWAY_URI\n"
 for i in `seq 1 3`; 
 do
-  printf "\n\nRetrieving default values via airport app\n"
-  curl -g $GATEWAY_URI/airports/
+  printf "\n\nRetrieving default value via airport app: testplane\n"
+  curl -g $GATEWAY_URI/airports/testplane
+  printf "\n\nRetrieving default value via airport app: testcomplexplane\n"
+  curl -g $GATEWAY_URI/airports/testcomplexplane
+  printf "\n\nRetrieving default value via airport app: testairport\n"
+  curl -g $GATEWAY_URI/airports/testairport
+  printf "\n\nRetrieving default value via airport app: testfuel\n"
+  curl -g $GATEWAY_URI/airports/testfuel
 
   printf "\n\nRetrieving airports list\n"
   curl -g $GATEWAY_URI/airports/
