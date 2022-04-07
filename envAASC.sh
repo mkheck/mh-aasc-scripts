@@ -6,16 +6,17 @@
 #        : Option for deploying to both of my accounts; change for yours ;)
 
 # Customize for your environment
-# export SUBSCRIPTION='ca-markheckler-demo-test'
-# export RESOURCE_GROUP='mh-scitc-rg'
-# export SPRING_CLOUD_SERVICE='mh-scitc-service'
-# export LOG_ANALYTICS='mkheck-scitc-analytics'
-export SUBSCRIPTION='9d3b13e3-e86e-4022-9c02-efb4f02ad908'
-export RESOURCE_GROUP='mh-scimc-rg'
-export SPRING_CLOUD_SERVICE='mh-scimc-service'
-export LOG_ANALYTICS='mkheck-scimc-analytics'
+export SUBSCRIPTION='ca-markheckler-demo-test'
+export RESOURCE_GROUP='mh-scitc-rg'
+export SPRING_CLOUD_SERVICE='mh-scitc-service'
+export LOG_ANALYTICS='mkheck-scitc-analytics'
+# export SUBSCRIPTION='9d3b13e3-e86e-4022-9c02-efb4f02ad908'
+# export RESOURCE_GROUP='mh-scimc-rg'
+# export SPRING_CLOUD_SERVICE='mh-scimc-service'
+# export LOG_ANALYTICS='mkheck-scimc-analytics'
 
-export REGION='centralus'
+# export REGION='centralus'
+export REGION='eastus'
 export PROJECT_DIRECTORY=$HOME
 export REPO_OWNER_URI='https://github.com/mkheck'
 export PROJECT_REPO='spring-cloud-in-the-cloud'

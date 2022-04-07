@@ -59,19 +59,19 @@ az spring-cloud create -n $SPRING_CLOUD_SERVICE -g $RESOURCE_GROUP -l $REGION --
 az spring-cloud config-server git set -n ${SPRING_CLOUD_SERVICE} -g $RESOURCE_GROUP --uri $REPO_OWNER_URI/$CONFIG_REPO
 
 
-# Create app constructs in AzSC
+# Create app constructs in ASC
 printf "\n\nCreating the apps in Spring Cloud\n"
 
 az spring-cloud app create -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
-    --instance-count 1 --memory 2Gi --runtime-version Java_11 --assign-endpoint true
+    --instance-count 1 --memory 2Gi --runtime-version Java_17 --assign-endpoint true
 az spring-cloud app create -n $ADMIN_SERVICE_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
-    --instance-count 1 --memory 2Gi --runtime-version Java_11 --assign-endpoint true
+    --instance-count 1 --memory 2Gi --runtime-version Java_17 --assign-endpoint true
 az spring-cloud app create -n $AIRPORT_SERVICE_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
-    --instance-count 1 --memory 2Gi --runtime-version Java_11 --assign-endpoint true
+    --instance-count 1 --memory 2Gi --runtime-version Java_17 --assign-endpoint true
 az spring-cloud app create -n $WEATHER_SERVICE_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
-    --instance-count 1 --memory 2Gi --runtime-version Java_11 --assign-endpoint true
+    --instance-count 1 --memory 2Gi --runtime-version Java_17 --assign-endpoint true
 az spring-cloud app create -n $CONDITIONS_SERVICE_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
-    --instance-count 1 --memory 2Gi --runtime-version Java_11 --assign-endpoint true
+    --instance-count 1 --memory 2Gi --runtime-version Java_17 --assign-endpoint true
 
 
 # Log analysis configuration

@@ -46,6 +46,9 @@ GATEWAY_URI=$(az spring-cloud app show -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s 
 printf "\n\nTesting deployed services at $GATEWAY_URI\n"
 for i in `seq 1 3`; 
 do
+  printf "\n\nRetrieving default values via airport app\n"
+  curl -g $GATEWAY_URI/airports/
+
   printf "\n\nRetrieving airports list\n"
   curl -g $GATEWAY_URI/airports/
 
