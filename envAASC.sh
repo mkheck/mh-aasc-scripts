@@ -8,9 +8,9 @@
 
 # Customize for your environment
 export SUBSCRIPTION='ca-markheckler-demo-test'
-export RESOURCE_GROUP='mh-scitc-rg'
-export SPRING_CLOUD_SERVICE='mh-scitc-service'
-export LOG_ANALYTICS='mkheck-scitc-analytics'
+export RESOURCE_GROUP='mh-brew-rg'
+export SPRING_CLOUD_SERVICE='mh-brew-service'
+export LOG_ANALYTICS='mkheck-brew-analytics'
 # export SUBSCRIPTION='9d3b13e3-e86e-4022-9c02-efb4f02ad908'
 # export RESOURCE_GROUP='mh-scimc-rg'
 # export SPRING_CLOUD_SERVICE='mh-scimc-service'
