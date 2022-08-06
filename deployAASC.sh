@@ -12,37 +12,37 @@ printf "\nDeploying app artifacts to Spring Cloud\n"
 
 # Deploy the actual applications
 printf "\n\nDeploying $API_GATEWAY_ID\n"
-az spring-cloud app deploy -n $API_GATEWAY_ID \
+az spring app deploy -n $API_GATEWAY_ID \
     -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
     --artifact-path $API_GATEWAY_JAR \
     --jvm-options='-Xms2048m -Xmx2048m'
 
 printf "\n\nDeploying $ADMIN_SERVICE_ID\n"
-az spring-cloud app deploy -n $ADMIN_SERVICE_ID \
+az spring app deploy -n $ADMIN_SERVICE_ID \
     -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
     --artifact-path $ADMIN_SERVICE_JAR \
     --jvm-options='-Xms2048m -Xmx2048m'
     
 printf "\n\nDeploying $AIRPORT_SERVICE_ID\n"
-az spring-cloud app deploy -n $AIRPORT_SERVICE_ID \
+az spring app deploy -n $AIRPORT_SERVICE_ID \
     -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
     --artifact-path $AIRPORT_SERVICE_JAR \
     --jvm-options='-Xms2048m -Xmx2048m'
 
 printf "\n\nDeploying $WEATHER_SERVICE_ID\n"
-az spring-cloud app deploy -n $WEATHER_SERVICE_ID \
+az spring app deploy -n $WEATHER_SERVICE_ID \
     -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
     --artifact-path $WEATHER_SERVICE_JAR \
     --jvm-options='-Xms2048m -Xmx2048m'
 
 printf "\n\nDeploying $CONDITIONS_SERVICE_ID\n"
-az spring-cloud app deploy -n $CONDITIONS_SERVICE_ID \
+az spring app deploy -n $CONDITIONS_SERVICE_ID \
     -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE \
     --artifact-path $CONDITIONS_SERVICE_JAR \
     --jvm-options='-Xms2048m -Xmx2048m'
 
 # Exercise those endpoints
-GATEWAY_URI=$(az spring-cloud app show -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE --query properties.url --output tsv)
+GATEWAY_URI=$(az spring app show -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE --query properties.url --output tsv)
 
 printf "\n\nTesting deployed services at $GATEWAY_URI\n"
 for i in `seq 1 3`; 

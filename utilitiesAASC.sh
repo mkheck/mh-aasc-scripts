@@ -10,22 +10,22 @@
 
 ## Logs
 ### Tailing
-az spring-cloud app logs -n $<app_id> -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE -f
+az spring app logs -n $<app_id> -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE -f
 
 ### See more
-az spring-cloud app logs -n $<app_id> -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE --lines 200
+az spring app logs -n $<app_id> -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE --lines 200
 
 ## List keys for CosmosDB account :O)
 az cosmosdb keys list -n $COSMOSDB_ACCOUNT -g $RESOURCE_GROUP
 
 ## List all apps in this ASC instance
-az spring-cloud app list -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE
+az spring app list -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE
 
 ## List all databases in Azure Database for MySQL "server"
 az mysql db list -g $RESOURCE_GROUP -s $MYSQL
 
 ## App delete
-az spring-cloud app delete -n $<app_id> -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE
+az spring app delete -n $<app_id> -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE
 
 ## List resource groups for this account
 az group list | jq -r '.[].name'
@@ -36,10 +36,10 @@ az group list --query "[].name" --output tsv
 az group delete -g $RESOURCE_GROUP --subscription $SUBSCRIPTION -y
 
 ## Azure Spring cloud delete, destroy, el fin de la historia
-az spring-cloud delete -n $SPRING_CLOUD_SERVICE -g $RESOURCE_GROUP
+az spring delete -n $SPRING_CLOUD_SERVICE -g $RESOURCE_GROUP
 
 ## Azure Spring cloud stop (pause, deep freeze, save for later)
-az spring-cloud stop -n $SPRING_CLOUD_SERVICE -g $RESOURCE_GROUP
+az spring stop -n $SPRING_CLOUD_SERVICE -g $RESOURCE_GROUP
 
 ## Create/deploy script runner, timer, logger
 time <script> | tee deployoutput.txt
@@ -47,7 +47,7 @@ time <script> | tee deployoutput.txt
 ## Exercise endpoints
 
 ### If not already done, source envAASC.sh first! Then...
-export GATEWAY_URI=$(az spring-cloud app show -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE --query properties.url --output tsv)
+export GATEWAY_URI=$(az spring app show -n $API_GATEWAY_ID -g $RESOURCE_GROUP -s $SPRING_CLOUD_SERVICE --query properties.url --output tsv)
 
 printf "\n\nTesting deployed services at $GATEWAY_URI\n"
 for i in `seq 1 3`; 
